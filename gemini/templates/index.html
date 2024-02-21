@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            width: 50%; /* Adjust the width as needed */
+        }
+        .bb {
+            width: 40%;
+    height: 40px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+        }
+    </style>
+    <title>PDF Summary and Quiz</title>
+</head>
+<body>
+    <div class="center">
+        <div class="form-container">
+    <h1>Upload PDF</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".pdf"><br>
+        <input class="bb" type="submit" value="Get Summary">
+    </form>
+        </div>
+    </div>
+</body>
+</html>

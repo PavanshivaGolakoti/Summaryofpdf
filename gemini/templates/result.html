@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Summarizer and Quiz</title>
+</head>
+<body>
+    <h1>Summary and Quiz Results</h1>
+    <p><b>Summary:</b> {{ summary }}</p>
+
+    <h2>Quiz</h2>
+    {% if score %}
+        <p><b>Your Score:</b> {{ score }}%</p>
+    {% else %}
+        <form method="POST" action="/submit">
+            {% for question in quiz %}
+                <p>{{ question["message"] }}</p>
+                <ul>
+                    {% for choice in question["choices"] %}
+                        <li>
+                            <input type="radio" name="{{ question["name"] }}" value="{{ choice }}">
+                            {{ choice }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+            <button type="submit">Submit Quiz</button>
+        </form>
+    {% endif %}
+
+</body>
+</html>

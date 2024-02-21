@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .bb {
+             width: 40%;
+    height: 40px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+        }
+    </style>
+    <title>Quiz</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <form action="/quiz" method="post">
+        {% for question in questions %}
+            <p>{{ question.question }}</p>
+            <input type="radio" name="{{ loop.index0 }}" value="a">{{ question.options[0].a }}<br>
+            <input type="radio" name="{{ loop.index0 }}" value="b">{{ question.options[1].b }}<br>
+            <input type="radio" name="{{ loop.index0 }}" value="c">{{ question.options[2].c }}<br>
+            <input type="radio" name="{{ loop.index0 }}" value="d">{{ question.options[3].d }}<br>
+        {% endfor %}
+        <input class="bb" type="submit" value="Submit">
+    </form>
+</body>
+</html>
